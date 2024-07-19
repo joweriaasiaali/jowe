@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sula Arcade</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #c26712; /* Brown background */
+        }
+
+        header {
+            background: #11a15e; /* Red background */
+            color: #cf9412;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        footer {
+            background: #26a345; /* Orange background */
+            color: #140d14;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: #e02c0c;
+            text-decoration: none;
+        }
+
+        main {
+            padding: 1rem;
+        }
+
+        .item-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .item {
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 1rem;
+            width: calc(33.333% - 2rem);
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .item img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .item button {
+            background: #333;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('.item button');
+            buttons.forEach(button => {
+                button.addEventListener('click', () => {
+                    alert('Item added to cart!');
+                });
+            });
+
+            const navLinks = document.querySelectorAll('nav ul li a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    document.querySelectorAll('.page').forEach(page => {
+                        page.classList.remove('active');
+                    });
+                    document.getElementById(targetId).classList.add('active');
+                });
+            });
+
+            // Show home page by default
+            document.getElementById('home').classList.add('active');
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>SULA ARCADE</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#shop">SHOP</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div id="home" class="page">
+            <h2>Welcome to Sula Arcade!</h2>
+            <p>Explore the best collection of clothes for Women, Men, and Kids.<br>
+            we  bring you  quality products from all over the world. <br>
+            </p>
+        </div>
+        <div id="about" class="page">
+            <h2>About Us</h2>
+            <p>Learn more about Sula Arcade, our mission, and values.</p>
+        </div>
+        <div id="contact" class="page">
+            <h2>Contact Us</h2>
+            <p>Get in touch with us for any inquiries or support.</p>
+        </div>
+        <div id="shop" class="page">
+            <h2>Shop</h2>
+            <h3>Women</h3>
+            <div class="item-container">
+                <!-- Women's Items -->
+                <div class="item">
+                    <img src="https://via.placeholder.com/150" alt="Women's Item 1">
+                    <p>Item 1</p>
+                    <button>Add to Cart</button>
+                </div>
+                <div class="item">
+                    <img src="https://via.placeholder.com/150" alt="Women's Item 2">
+                    <p>Item 2</p>
+                    <button>Add to Cart</button>
+                </div>
+                <div class="item">
+                    <img src="https://via.placeholder.com/150" alt="Women's Item 3">
+                    <p>Item 3</p>
+                    <button>Add to Cart</button>
+                </div>
+                <!-- Repeat for 17 more items -->
+            </div>
+            <h3>Men</h3>
+            <div class="item-container">
+                <!-- Men's Items -->
+                <div class="item">
+                    <img src="https://via.placeholder.com/150" alt="Men's Item 1">
+                    <p>Item 1</p>
+                    <button>Add to Cart</button>
+                </div>
+                <div class="item">
+                    <img src="https://via.placeholder.com/150" alt="Men's Item 2">
+                    <p>Item 2</p>
+                    <button>Add to Cart</button>
+                </div>
+                <div class="item">
+                    <img src="https://via.placeholder.com/150" alt="Men's Item 3">
+                    <p>Item 3</p>
+                    <button>Add to Cart</button>
+                </div>
+                <!-- Repeat for 18 more items -->
+            </div>
+            <h3>Kids</h3>
+            <div class="item-container">
+                <!-- Kids' Items -->
+                <div class="item">
+                    <img src="C:\Users\user\Pictures\Camera Roll\1693356065048~2.jpg" alt="Kids' Item 1">
+                    <p>Item 1</p>
+                    <button>Add to Cart</button>
+                </div>
+                <div class="item">
+                    <img src="https://via.placeholder.com/150" alt="Kids' Item 2">
+                    <p>Item 2</p>
+                    <button>Add to Cart</button>
+                </div>
+                <div class="item">
+                    <img src="https://via.placeholder.com/150" alt="Kids' Item 3">
+                    <p>Item 3</p>
+                    <button>Add to Cart</button>
+                </div>
+                <!-- Repeat for 17 more items -->
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Sula Arcade. All rights reserved.</p>
+    </footer>
+</body>
+</html>
